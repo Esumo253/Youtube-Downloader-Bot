@@ -25,11 +25,11 @@ async def catch_youtube_fmtid(c, m):
         print(media_type)
         if media_type == 'audio':
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "audio" , callback_data = f" { media_type } || { format_id } || { yturl } " ), InlineKeyboardButton ( "Document" ,
+                "Аудио" , callback_data = f" { media_type } || { format_id } || { yturl } " ), InlineKeyboardButton ( "Документ" ,
                                                                                                     callback_data=f"docaudio||{format_id}||{yturl}")]])
         else:
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "video", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document",
+                "Видео", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Документ",
                                                                                                     callback_data=f"docvideo||{format_id}||{yturl}")]])
 
         await m.edit_message_reply_markup(buttons)
