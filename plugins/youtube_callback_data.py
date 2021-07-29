@@ -25,11 +25,11 @@ async def catch_youtube_fmtid(c, m):
         print(media_type)
         if media_type == 'audio':
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "Аудио", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Документ",
+                "audio" , callback_data = f" { media_type } || { format_id } || { yturl } " ), InlineKeyboardButton ( "Document" ,
                                                                                                     callback_data=f"docaudio||{format_id}||{yturl}")]])
         else:
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "Видео", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Документ",
+                "video", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document",
                                                                                                     callback_data=f"docvideo||{format_id}||{yturl}")]])
 
         await m.edit_message_reply_markup(buttons)
@@ -149,7 +149,7 @@ async def send_file(c, q, med, filename):
     print(med)
     try:
         await q.edit_message_reply_markup(
-            InlineKeyboardMarkup([[InlineKeyboardButton("Загрузка...", callback_data="down")]]))
+            InlineKeyboardMarkup([[InlineKeyboardButton("Uploading...", callback_data="down")]]))
         await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
         # this one is not working
         await q.edit_message_media(media=med)
